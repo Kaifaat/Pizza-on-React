@@ -1,5 +1,4 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {CartItem} from "../cart/types";
 import {FilterSliceState, Sort, SortPropertyEnum} from "./types";
 
 const initialState: FilterSliceState = {
@@ -44,7 +43,6 @@ const filterSlice = createSlice({
         }
     }
 })
-
 
 export const { setCategoryId, setSort, setCurrentPage, setFilters, setSearchValue } = filterSlice.actions;
 

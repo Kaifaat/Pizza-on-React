@@ -1,4 +1,3 @@
-import React from 'react';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {getCartFromLS} from "../../utils/getCartFromLS";
 import {calcTotalPrice} from "../../utils/calcTotalPrice";
@@ -46,7 +45,6 @@ const cartSlice = createSlice({
         }
     }
 })
-
 
 export const { addItem, removeItem, minusItem, clearItems } = cartSlice.actions;
 

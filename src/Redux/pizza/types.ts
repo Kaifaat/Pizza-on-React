@@ -1,6 +1,3 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import axios from "axios";
-
 export type SearchPizzaParams = {
     sortBy: string;
     order: string;

@@ -1,6 +1,5 @@
 import React from 'react';
 import qs from 'qs';
-// import {SearchContext} from '../App'
 import {useSelector} from "react-redux";
 
 import {useNavigate} from 'react-router-dom';
@@ -11,8 +10,6 @@ import Sort from "../components/Sort";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import PizzaBlock from "../components/PizzaBlock/index";
 import Pagination from "../components/Pagination";
-
-// import { Categories, Sort, PizzaBlock, Skeleton, Pagination } from '../components';
 
 
 import {useAppDispatch} from "../Redux/store";
@@ -31,12 +28,7 @@ export const Home = () => {
     const {categoryId, sort, currentPage, searchValue} = useSelector(selectFilter);
     const {items, status} = useSelector(selectPizzaData);
 
-    // const {searchValue} = React.useContext(SearchContext);
-    // const [items, setItems] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
-    // const [categoryId, setCategoryId] = React.useState(0);
-    // const [currentPage, setCurrentPage] = React.useState(1);
-
 
     const onChangeCategory = React.useCallback((id: number) => {
         dispatch(setCategoryId(id));
@@ -54,16 +46,6 @@ export const Home = () => {
         const sortBy = sort.sortProperty.replace('-', '');
         const category = categoryId > 0 ? `category=${categoryId}` : '';
         const search = searchValue ? `&search=${searchValue}` : '';
-
-        // await axios.get(`https://6322ee4e362b0d4e7dd6b76b.mockapi.io/Items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
-        // )
-        //     .then((res) => {
-        //         setItems(res.data);
-        //         setIsLoading(false);
-        //     }).catch((error) => {
-        //     setIsLoading(false);
-        //     console.log(error, 'Axios error');
-        //     })
 
         dispatch(
             fetchPizzas({
@@ -95,10 +77,6 @@ export const Home = () => {
             });
             navigate(`?${queryString}`);
         }
-
-        // if (!window.location.search) {
-        //     dispatch(fetchPizzas({} as SearchPizzaParams));
-        // }
 
         isMounted.current = true;
     }, [categoryId, sort.sortProperty, searchValue])

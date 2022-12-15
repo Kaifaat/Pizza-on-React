@@ -17,8 +17,6 @@ type PizzaBlockProps = {
     count: 0;
 }
 
-
-
 const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types, rating, components}) => {
     const dispatch = useDispatch();
     const cartItem = useSelector(selectCartItemById(id));
@@ -42,7 +40,7 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, siz
         };
         dispatch(addItem(item));
     }
-    
+
     return (
         <div className="pizza-block-wrapper">
             <div className="pizza-block">

@@ -17,10 +17,4 @@ export const fetchPizzas = createAsyncThunk<Pizza[], Record<string, string>>(
         );
         console.log(data)
         return data;
-
-        //     if(data.length === 0) {
-        //         return thunkAPI. rejectWithValue('Пиццы пустые');
-        //     }
-        //     return thunkAPI.fulfillWithValue(data);
-        // }
     });

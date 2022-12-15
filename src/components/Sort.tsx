@@ -17,7 +17,6 @@ export type SortPopupProps = {
     value: Sort;
 }
 
-
 export const sortList: SortItem[] = [
     {name: 'популярности (DESC)', sortProperty: SortPropertyEnum.RATING_DESC},
     {name: 'популярности (ASC)', sortProperty: SortPropertyEnum.RATING_ASC},
@@ -45,7 +44,6 @@ const SortPopup: React.FC<SortPopupProps> = React.memo(({value}) => {
         React.useEffect(() => {
             const handleClickOutside = (event: MouseEvent) => {
                 const _event = event as PopupClick;
-                // let path = event.composedPath().includes(sortRef.current);
                 if (sortRef.current && !_event.path.includes(sortRef.current)) {
                     setOpen(false);
                 }
